@@ -1,0 +1,107 @@
+@CHARSET "UTF-8";
+
+
+/* <하이퍼링크 만들 때 주의할 점>
+같은디렉토리에 있을 때 
+이름만 이야기하면 된다. 현재 디렉토리 표시 
+/ ./ ../
+
+./ 현재디렉토리
+/ 루트디렉토리(최상위 디렉토리)
+../ 상위디렉토리  */
+
+
+#header {
+   height: 70px;
+  
+}
+
+#visual {
+   height: 171px;
+   /*7월22일추가*/ 
+   /* background:#313131; */
+   background:#313131 url("../../images/bg-visual.png") no-repeat center;
+   border-top:3px solid #8CBA34;
+   
+  
+}
+
+ #body {
+   /* height: 300px;  *//* 고정크기 */
+   min-height:inherit;
+   	/*7월22일추가*/
+     border-top:5px solid #8CBA34;
+     margin-top:1px;
+    
+     }
+
+ /*7월22일추가*/
+  #body .content-wrapper{
+   background:url("../../images/bg-body.png") repeat-y center;
+} 
+    
+/* 0720 추가 */
+#aside {
+   height: inherit;
+   width: 205px;
+   float: left;
+}
+
+/* 0720 추가 */
+#main {
+   height: inherit;
+   width: 755px;
+   float: left; 
+}
+
+#footer 
+{
+   height: 100px;
+   /*7월22일추가*/
+   background:#313131;
+   
+}
+
+.content-wrapper {
+   /* height: 100%; */
+   min-height:inherit;
+   width: 960px; /* 왼쪽 정렬 된다. */
+   margin-left: auto; /* 오른쪽 정렬 된다.*/
+   margin-right: auto; /* margin을 왼쪽, 오른쪽 다주면 가운데 정렬 된다. */
+  
+   /* opacity: 0.5; */
+}
+
+/*7월21일추가*/
+#quick-menu {
+	height: 10px;
+	width: 100%;
+	
+	/* position:static;
+	 position:absolute; */
+	 position:fixed;
+	/* top:800px; */
+	bottom:0px;
+}
+
+/*7월22일추가*/
+#quick-menu:hover {
+	height: 70px;
+	}
+
+/*7월21일추가*/
+.clearfix:after {
+	content: ".";
+	display:block;
+	clear:both;
+	visibility:hidden;
+	line-height:0;
+	height:0;
+} 
+
+/*7월23일추가*/
+#visual .content-wrapper { 
+	background:url("../customer/visual.png") no-repeat center;
+}
+	
+	

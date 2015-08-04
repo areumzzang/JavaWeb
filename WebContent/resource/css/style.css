@@ -1,0 +1,57 @@
+@CHARSET "UTF-8"";
+
+h1 {
+	color: blue;
+}
+
+h2, h1 {
+	color: blue;
+}
+
+.h1 {
+	color: blue;
+}
+
+h1.h1 {
+	color: blue;
+}
+
+#a {
+	color: blue;
+}
+
+aside.h1 {
+	color: red;
+}
+
+section[id] {
+	color: pink;
+}
+
+/*nav[id="main-menu"]*/
+#main-menu {
+	color: blue;
+}
+
+input[value="a"] {
+	color: red;
+	font-weight: blod;
+}
+
+input[type="submit"] {
+	color: red;
+	font-weight: blod;
+}
+
+ header>section.h1>nav+nav {
+	color: red;
+	font-weight: bold;
+} 
+
+/* section[id="lecture-search-form"] ...이렇게 하지말라!! */ 
+/* #lecture-search-form > form > fieldset> legend + table + input */
+/* #lecture-search-form legend + table + input */
+/* #lecture-search-form legend ~ input[type="text"] */
+#lecture-search-form input[type="text"] {
+	color: red;
+}

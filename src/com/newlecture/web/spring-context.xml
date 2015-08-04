@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+    	http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+   
+   	<context:annotation-config />
+   	<!-- 이렇게 설정을 해주지 않으면 어노테이션으로 설정을 할 수 없다.-->  
+    <!-- services -->
+    
+    <!-- NoticeDao noticeDao = new MyBatisNoticeDao();
+		
+		NoticeConsole console = new NoticeConsole();
+		console.setNoticeDao(noticeDao);  -->
+	<!-- // :접두사 -->
+	 <!-- 문서구조에 대한 내용을 설명한 파일
+	빈즈를 처리하는 것과 컨텍스트를 처리하는 것이 있다.  -->
+    <!-- //IoC Container에 담겨질 것을 작성 //=스프링빈컨테이너 -->
+    <!--  스프링이 메모리에 올려놓고 담아주고 있을 것이다. -->
+    <!-- 저 객체를 쓸 수 있게 id로 별칭을 지정 -->
+    <!-- <bean id="noticeDao" class="com.newlecture.web.dao.mybatis.MyBatisNoticeDao"></bean> --> 
+    <!--  <bean id="hiNoticeDao" class="com.newlecture.web.HiNoticeDao"> </bean> -->
+    <bean id="noticeDao" class="com.newlecture.web.HiNoticeDao"> </bean>
+    <bean id="noticeDao1" class="com.newlecture.web.HiNoticeDao"> </bean>  
+	
+	<bean id="console" class="com.newlecture.web.NoticeConsole">
+		<!-- <property name="noticeDao" ref="hiNoticeDao" /> -->
+		<!-- 인젝션작업을 어노테이션으로 설정을 할 것이라서 주석처리 했는데 Program에서 실행을 하면 
+		NullPointer에러가 날 것이다. 왜 에러가 나냐면 print할 객체가 없기 때문이다. -->
+	</bean>
+	<!-- 빈이라는 것을 통해서 단일 태그 //2개의 클래스를 만들었고 객체화를 통해서 객체를 IoC 컨테이너에 담아준 것이다.
+	setNoticeDao(noticeDao)를 꽂아넣는 작업이 필요하다.  꽂아넣을게 값이면 value, 레퍼런스면 ref
+	왜 set이 아니라 property일까? property의 name은 실제속성명이 아니라 setter명이다. -->
+	
+    <!-- more bean definitions for services go here -->
+
+</beans>

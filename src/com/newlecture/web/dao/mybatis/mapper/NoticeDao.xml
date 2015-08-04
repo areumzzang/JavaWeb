@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newlecture.web.dao.NoticeDao">
+
+	<select id="getNotices" resultType="com.newlecture.web.vo.Notice">
+		SELECT * FROM NOTICEVIEW ORDER BY RegDate DESC <!-- NOTICES테이블을 NOTICEVIEW로 수정 -->
+	</select>
+
+	<select id="getNotice" parameterType="string" resultType="com.newlecture.web.vo.Notice">
+		SELECT * FROM NOTICES WHERE CODE=#{code}
+	</select>
+	
+	 <select id="getLastCode" resultType="string">
+	    	SELECT ISNULL(MAX(CAST(CODE AS INT)), 0) CODE FROM NOTICES
+	 </select>
+	    
+	<insert id="addNotice" parameterType="com.newlecture.web.vo.Notice">
+		<selectKey keyProperty="code" order="BEFORE" resultType="string">
+			SELECT ISNULL(MAX(CONVERT(INT,CODE)),0) + 1 CODE FROM NOTICES
+		</selectKey> <!-- dao가 실행되기위한 기본적인 구조 -->
+	 INSERT INTO NOTICES(CODE, TITLE, WRITER, CONTENT) 
+	 VALUES (
+	 	#{code},
+	  	#{title},
+	   	#{writer},
+	    #{content}) 
+	 </insert>
+	    
+	   
+	    <!-- regDate와 Hit 빼기!! -->
+	    <!-- 데이터베이스에 있는 기본값을 쓰기로하고 기본값이 들어간 컬럼을 뺌 -->
+	
+	 
+	 <!-- <insert id="addNotices" parameterType="com.jass.notitle.vo.Notices">
+		<selectKey keyProperty="code" order="BEFORE" resultType="String">
+			select isnull(max(cast(code as int)), 0)+1 code from notices;
+		</selectKey>
+		INSERT INTO Notices (Code, Title, Content, Writer, RegDate, Hit) VALUES(#{code}, #{title}, #{content}, #{writer}, getDate(), 0)
+	</insert> -->
+</mapper>
+
